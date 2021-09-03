@@ -30,12 +30,13 @@ public class desafio_modulo2 {
 
         Map<String, String> funcionarios = new HashMap<String, String>();
 
-        while (seletor > 0 && seletor < 4 && seletor != 4) {
+        while (seletor > 0 && seletor < 4) {
             System.out.println("Programa de cadastro de funcionários");
             System.out.println("Digite 1 para cadastrar um funcionário");
             System.out.println("Digite 2 Exibir a lista de todos os funcionários cadastrados");
             System.out.println("Digite 3 para remover um cadastro de funcionário");
             System.out.println("Digite 4 para encerrar o programa e sair");
+
             seletor = leitor.nextInt();
             leitor.nextLine();
 
@@ -44,15 +45,18 @@ public class desafio_modulo2 {
                 case 1:
                     System.out.println("Digite o nome Completo do Funcionário: ");
                     String nome = leitor.nextLine();
+
                     System.out.println("Digite o telefone do funcionário: ");
                     String telefone = leitor.nextLine();
+
                     System.out.println("Digite o e-mail do funcionário: ");
                     String email = leitor.nextLine();
+
                     System.out.println("Digite o CPF do funcionário: ");
                     String cpf = leitor.nextLine();
 
                     if (funcionarios.isEmpty()) {
-                        funcionarios.put(cpf, "Nome: " + nome + " Telefone: " + telefone);
+                        funcionarios.put(cpf, "Nome: " + nome + " Telefone: " + telefone + " E-mail: " + email);
                     } else {
                         boolean verificador = false;
                         for (String referencia : funcionarios.keySet()) {
@@ -63,7 +67,7 @@ public class desafio_modulo2 {
                         if (verificador == true) {
                             System.out.println("Este CPF já foi cadastrado");
                         } else {
-                            funcionarios.put(cpf, "Nome: " + nome + " Telefone: " + telefone);
+                            funcionarios.put(cpf, "Nome: " + nome + " Telefone: " + telefone + " E-mail: " + email);
                         }
                     }
 
@@ -74,17 +78,22 @@ public class desafio_modulo2 {
                     }
                     break;
                 case 3:
-                    if (funcionarios.isEmpty()){
+                    if (funcionarios.isEmpty()) {
                         System.out.println("Não existem cadastros a serem deletados");
-                    } else{
+                    } else {
                         System.out.println("Por favor, digite o CPF do funcionário a ter o registro deletado: ");
                         String cpfASerRemovido = leitor.nextLine();
+                        boolean verificador = false;
                         for (String referencia : funcionarios.keySet()) {
                             if (referencia.equals(cpfASerRemovido)) {
+                                verificador = true;
                                 funcionarios.remove(cpfASerRemovido);
                                 System.out.println("Registro deletado com sucesso");
                                 break;
-                            }// else para se não existir um cadastro com aquele cpf
+                            }
+                        }
+                        if (verificador == false) {
+                            System.out.println("CPF não cadastrado");
                         }
                     }
                     break;
