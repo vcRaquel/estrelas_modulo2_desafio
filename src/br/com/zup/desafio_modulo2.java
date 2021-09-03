@@ -72,18 +72,22 @@ public class desafio_modulo2 {
                     for (String referencia : funcionarios.keySet()) {
                         System.out.println(funcionarios.get(referencia) + " CPF: " + referencia);
                     }
-                    System.out.println("exibir lista");
                     break;
                 case 3:
-                    System.out.println("Por favor, digite o CPF do funcionário a ter o registro deletado: ");
-                    String cpfASerRemovido = leitor.nextLine();
-                    for (String referencia : funcionarios.keySet()) {
-                        if (referencia.equals(cpfASerRemovido)) {
-                            funcionarios.remove(cpfASerRemovido);
-                            System.out.println("Registro deletado com sucesso");
-                            break;
+                    if (funcionarios.isEmpty()){
+                        System.out.println("Não existem cadastros a serem deletados");
+                    } else{
+                        System.out.println("Por favor, digite o CPF do funcionário a ter o registro deletado: ");
+                        String cpfASerRemovido = leitor.nextLine();
+                        for (String referencia : funcionarios.keySet()) {
+                            if (referencia.equals(cpfASerRemovido)) {
+                                funcionarios.remove(cpfASerRemovido);
+                                System.out.println("Registro deletado com sucesso");
+                                break;
+                            }// else para se não existir um cadastro com aquele cpf
                         }
                     }
+                    break;
                 case 4:
                     System.out.println("Obrigado por usar o programa de cadastro de funcionários!");
 
