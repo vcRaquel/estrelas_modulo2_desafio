@@ -40,7 +40,6 @@ public class desafio_modulo2 {
             seletor = leitor.nextInt();
             leitor.nextLine();
 
-
             switch (seletor) {
                 case 1:
                     System.out.println("Digite o nome Completo do Funcionário: ");
@@ -62,17 +61,20 @@ public class desafio_modulo2 {
                         for (String referencia : funcionarios.keySet()) {
                             if (referencia.equals(cpf)) {
                                 verificador = true;
+                                break;
                             }
                         }
-                        if (verificador == true) {
+                        if (verificador) {
                             System.out.println("Este CPF já foi cadastrado");
                         } else {
                             funcionarios.put(cpf, "Nome: " + nome + " Telefone: " + telefone + " E-mail: " + email);
                         }
                     }
-
                     break;
                 case 2:
+                    if (funcionarios.isEmpty()){
+                        System.out.println("Não existem cadastros a serem exibidos");
+                    }
                     for (String referencia : funcionarios.keySet()) {
                         System.out.println(funcionarios.get(referencia) + " CPF: " + referencia);
                     }
@@ -92,14 +94,13 @@ public class desafio_modulo2 {
                                 break;
                             }
                         }
-                        if (verificador == false) {
+                        if (!verificador) {
                             System.out.println("CPF não cadastrado");
                         }
                     }
                     break;
                 case 4:
                     System.out.println("Obrigado por usar o programa de cadastro de funcionários!");
-
             }
         }
 
