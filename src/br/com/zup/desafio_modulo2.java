@@ -17,6 +17,7 @@ package br.com.zup;
 
 //Entrega Máxima: O Sistema permite excluir um funcionário usando como
 //parâmetro o CPF e não permite inserir um funcionário com o CPF repetido.
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -24,20 +25,38 @@ import java.util.Scanner;
 public class desafio_modulo2 {
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
-        Map<String,String> funcionarios = new HashMap<String,String>();
+        int seletor = 1;
+        Map<String, String> funcionarios = new HashMap<String, String>();
 
-        System.out.println("Digite o nome Completo do Funcionário: ");
-        String nome = leitor.nextLine();
-        System.out.println("Digite o seu telefone: ");
-        String telefone = leitor.nextLine();
-        System.out.println("Digite o e-mail do funcionário: ");
-        String email = leitor.nextLine();
-        System.out.println("Digite o CPF do funcionário: ");
-        String cpf = leitor.nextLine();
-        funcionarios.put(cpf, "Nome: " + nome + " Telefone: " + telefone);
+        while (seletor > 0 && seletor < 3 && seletor != 3) {
+            System.out.println("Digite 1 para cadastrar um funcionário");
+            System.out.println("2 Exibir a lista de todos os funcionários cadastrados.");
+            System.out.println("3 para encerrar o programa e sair");
+            seletor = leitor.nextInt();
+            leitor.nextLine();
 
-        for (String referencia : funcionarios.keySet()){
-            System.out.println(funcionarios.get(referencia) + " CPF: " + referencia);
+            switch (seletor) {
+                case 1:
+                    System.out.println("Digite o nome Completo do Funcionário: ");
+                    String nome = leitor.nextLine();
+                    System.out.println("Digite o seu telefone: ");
+                    String telefone = leitor.nextLine();
+                    System.out.println("Digite o e-mail do funcionário: ");
+                    String email = leitor.nextLine();
+                    System.out.println("Digite o CPF do funcionário: ");
+                    String cpf = leitor.nextLine();
+                    funcionarios.put(cpf, "Nome: " + nome + " Telefone: " + telefone);
+                    break;
+                case 2:
+                    System.out.println("exibir lista");
+                    break;
+
+            }
         }
+
+
+//        for (String referencia : funcionarios.keySet()){
+//            System.out.println(funcionarios.get(referencia) + " CPF: " + referencia);
+//        }
     }
 }
