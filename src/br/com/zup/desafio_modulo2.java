@@ -28,11 +28,12 @@ public class desafio_modulo2 {
         int seletor = 1;
         Map<String, String> funcionarios = new HashMap<String, String>();
 
-        while (seletor > 0 && seletor < 3 && seletor != 3) {
+        while (seletor > 0 && seletor < 4 && seletor != 4) {
             System.out.println("Programa de cadastro de funcionários");
             System.out.println("Digite 1 para cadastrar um funcionário");
-            System.out.println("Digite 2 Exibir a lista de todos os funcionários cadastrados.");
-            System.out.println("Digite 3 para encerrar o programa e sair");
+            System.out.println("Digite 2 Exibir a lista de todos os funcionários cadastrados");
+            System.out.println("Digite 3 para remover um cadastro de funcionário");
+            System.out.println("Digite 4 para encerrar o programa e sair");
             seletor = leitor.nextInt();
             leitor.nextLine();
 
@@ -40,7 +41,7 @@ public class desafio_modulo2 {
                 case 1:
                     System.out.println("Digite o nome Completo do Funcionário: ");
                     String nome = leitor.nextLine();
-                    System.out.println("Digite o seu telefone: ");
+                    System.out.println("Digite o telefone do funcionário: ");
                     String telefone = leitor.nextLine();
                     System.out.println("Digite o e-mail do funcionário: ");
                     String email = leitor.nextLine();
@@ -49,17 +50,29 @@ public class desafio_modulo2 {
                     funcionarios.put(cpf, "Nome: " + nome + " Telefone: " + telefone);
                     break;
                 case 2:
-                    for (String referencia : funcionarios.keySet()){
+                    for (String referencia : funcionarios.keySet()) {
                         System.out.println(funcionarios.get(referencia) + " CPF: " + referencia);
                     }
                     System.out.println("exibir lista");
                     break;
                 case 3:
+                    System.out.println("Por favor, digite o CPF do funcionário a ter o registro deletado: ");
+//                    String cpfRemovido = "";
+                    String cpfASerRemovido = leitor.nextLine();
+                    for (String referencia : funcionarios.keySet()) {
+                        if (referencia.equals(cpfASerRemovido)) {
+//                          cpfRemovido = cpfASerRemovido;
+                            funcionarios.remove(cpfASerRemovido);
+                            System.out.println("Registro deletado com sucesso");
+                            break;
+                        }
+                    }
+//                    funcionarios.remove((cpfASerRemovido));
+                case 4:
                     System.out.println("Obrigado por usar o programa de cadastro de funcionários!");
 
             }
         }
-
 
 
     }
