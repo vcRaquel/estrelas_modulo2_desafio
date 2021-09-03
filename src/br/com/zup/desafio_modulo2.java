@@ -27,6 +27,7 @@ public class desafio_modulo2 {
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
         int seletor = 1;
+
         Map<String, String> funcionarios = new HashMap<String, String>();
 
         while (seletor > 0 && seletor < 4 && seletor != 4) {
@@ -53,14 +54,19 @@ public class desafio_modulo2 {
                     if (funcionarios.isEmpty()) {
                         funcionarios.put(cpf, "Nome: " + nome + " Telefone: " + telefone);
                     } else {
+                        boolean verificador = false;
                         for (String referencia : funcionarios.keySet()) {
                             if (referencia.equals(cpf)) {
-                                System.out.println("Este CPF já foi cadastrado");
-                            } else {
-                                funcionarios.put(cpf, "Nome: " + nome + " Telefone: " + telefone);
+                                verificador = true;
                             }
                         }
+                        if (verificador == true) {
+                            System.out.println("Este CPF já foi cadastrado");
+                        } else {
+                            funcionarios.put(cpf, "Nome: " + nome + " Telefone: " + telefone);
+                        }
                     }
+
                     break;
                 case 2:
                     for (String referencia : funcionarios.keySet()) {
