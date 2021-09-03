@@ -48,6 +48,9 @@ public class desafio_modulo2 {
                     funcionarios.put(cpf, "Nome: " + nome + " Telefone: " + telefone);
                     break;
                 case 2:
+                    for (String referencia : funcionarios.keySet()){
+                        System.out.println(funcionarios.get(referencia) + " CPF: " + referencia);
+                    }
                     System.out.println("exibir lista");
                     break;
 
@@ -55,8 +58,6 @@ public class desafio_modulo2 {
         }
 
 
-//        for (String referencia : funcionarios.keySet()){
-//            System.out.println(funcionarios.get(referencia) + " CPF: " + referencia);
-//        }
+
     }
 }
