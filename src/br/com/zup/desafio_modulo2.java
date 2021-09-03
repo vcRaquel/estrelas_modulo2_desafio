@@ -29,9 +29,10 @@ public class desafio_modulo2 {
         Map<String, String> funcionarios = new HashMap<String, String>();
 
         while (seletor > 0 && seletor < 3 && seletor != 3) {
+            System.out.println("Programa de cadastro de funcionários");
             System.out.println("Digite 1 para cadastrar um funcionário");
-            System.out.println("2 Exibir a lista de todos os funcionários cadastrados.");
-            System.out.println("3 para encerrar o programa e sair");
+            System.out.println("Digite 2 Exibir a lista de todos os funcionários cadastrados.");
+            System.out.println("Digite 3 para encerrar o programa e sair");
             seletor = leitor.nextInt();
             leitor.nextLine();
 
@@ -53,6 +54,8 @@ public class desafio_modulo2 {
                     }
                     System.out.println("exibir lista");
                     break;
+                case 3:
+                    System.out.println("Obrigado por usar o programa de cadastro de funcionários!");
 
             }
         }
